@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Common</name>
+ <channel>lcobucci.github.com</channel>
+ <summary>Common PHP classes</summary>
+ <description>Classes for general purpose</description>
+ <lead>
+  <name>Luís Otávio Cobucci Oblonczyk</name>
+  <user>lcobucci</user>
+  <email>lcobucci@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2011-11-29</date>
+ <time>13:10:56</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD Style</license>
+ <notes>
+Initial version
+ </notes>
+ <contents>
+  <dir baseinstalldir="Lcobucci/Common" name="/">
+   <file baseinstalldir="Lcobucci/Common" md5sum="dcd69c6cee462c0babfc43c3a9790160" name="ClassLoader/SplClassLoader.php" role="php" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-11-29</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD Style</license>
+   <notes>
+Initial version
+   </notes>
+  </release>
+ </changelog>
+</package>
