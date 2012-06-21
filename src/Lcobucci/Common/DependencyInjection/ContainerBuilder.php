@@ -3,20 +3,20 @@ namespace Lcobucci\Common\DependencyInjection;
 
 use \Symfony\Component\Config\FileLocator;
 use \Symfony\Component\DependencyInjection\Dumper\PhpDumper;
-use \Symfony\Component\DependencyInjection\ContainerBuilder;
 use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use \Symfony\Component\DependencyInjection\ContainerBuilder as SymfonyBuilder;
 
 class ContainerBuilder
 {
     /**
      * @var string
      */
-    private $baseClass;
+    protected $baseClass;
 
     /**
      * @var string
      */
-    private $cacheDirectory;
+    protected $cacheDirectory;
 
 	/**
 	 * @param string $file
@@ -29,7 +29,7 @@ class ContainerBuilder
         $baseClass = null,
         $cacheDirectory = null
     ) {
-		$builder = new self();
+		$builder = new static();
 	    $builder->cacheDirectory = $cacheDirectory ?: sys_get_temp_dir();
 	    $builder->cacheDirectory = rtrim($builder->cacheDirectory, '/');
 
@@ -50,7 +50,7 @@ class ContainerBuilder
 		$dumpClass = $this->createDumpClassName($file);
 
 		if ($this->hasToCreateDumpClass($file, $dumpClass)) {
-			$container = new ContainerBuilder();
+			$container = new SymfonyBuilder();
 
 			$this->getLoader($container, $path)->load($file);
 			$this->createDump($container, $dumpClass);
@@ -97,7 +97,7 @@ class ContainerBuilder
 	 * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
 	 * @param string $className
 	 */
-	protected function createDump(ContainerBuilder $container, $className)
+	protected function createDump(SymfonyBuilder $container, $className)
 	{
 	    $config = array('class' => $className);
 
@@ -132,7 +132,7 @@ class ContainerBuilder
 	 * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
 	 * @return \Symfony\Component\DependencyInjection\Loader\XmlFileLoader
 	 */
-	protected function getLoader(ContainerBuilder $container, array $path)
+	protected function getLoader(SymfonyBuilder $container, array $path)
 	{
 		return new XmlFileLoader(
 			$container,
