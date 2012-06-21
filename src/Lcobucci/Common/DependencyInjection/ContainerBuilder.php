@@ -6,19 +6,38 @@ use \Symfony\Component\DependencyInjection\Dumper\PhpDumper;
 use \Symfony\Component\DependencyInjection\ContainerBuilder;
 use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-class XmlContainerBuilder
+class ContainerBuilder
 {
+    /**
+     * @var string
+     */
+    private $baseClass;
+
+    /**
+     * @var string
+     */
+    private $cacheDirectory;
+
 	/**
 	 * @param string $file
 	 * @param array $path
 	 * @return \Symfony\Component\DependencyInjection\ContainerBuilder
 	 */
-	public static function build($file, array $path = array())
-	{
+	public static function build(
+        $file,
+        array $path = array(),
+        $baseClass = null,
+        $cacheDirectory = null
+    ) {
 		$builder = new self();
-		$file = realpath($file);
+	    $builder->cacheDirectory = $cacheDirectory ?: sys_get_temp_dir();
+	    $builder->cacheDirectory = rtrim($builder->cacheDirectory, '/');
 
-		return $builder->getContainer($file, $path);
+		if ($baseClass !== null) {
+		    $builder->baseClass = $baseClass;
+		}
+
+		return $builder->getContainer(realpath($file), $path);
 	}
 
 	/**
@@ -32,14 +51,12 @@ class XmlContainerBuilder
 
 		if ($this->hasToCreateDumpClass($file, $dumpClass)) {
 			$container = new ContainerBuilder();
-			$this->getLoader($container, $path)->load($file);
 
+			$this->getLoader($container, $path)->load($file);
 			$this->createDump($container, $dumpClass);
-		} else {
-			$container = $this->loadFromDump($dumpClass);
 		}
 
-		return $container;
+		return $this->loadFromDump($dumpClass);
 	}
 
 	/**
@@ -57,7 +74,7 @@ class XmlContainerBuilder
 	 */
 	protected function getDumpFileName($className)
 	{
-		return sys_get_temp_dir() . '/' . $className . '.php';
+		return $this->cacheDirectory . '/' . $className . '.php';
 	}
 
 	/**
@@ -82,12 +99,18 @@ class XmlContainerBuilder
 	 */
 	protected function createDump(ContainerBuilder $container, $className)
 	{
+	    $config = array('class' => $className);
+
+	    if ($this->baseClass !== null) {
+	        $config['base_class'] = $this->baseClass;
+	    }
+
 		$dumper = new PhpDumper($container);
 		$dumpFile = $this->getDumpFileName($className);
 
 		file_put_contents(
 			$dumpFile,
-			$dumper->dump(array('class' => $className))
+			$dumper->dump($config)
 		);
 
 		chmod($dumpFile, 0777);
