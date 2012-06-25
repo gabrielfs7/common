@@ -10,11 +10,11 @@
   <email>lcobucci@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2012-06-21</date>
- <time>11:05:06</time>
+ <date>2012-06-23</date>
+ <time>17:30:08</time>
  <version>
-  <release>0.3.0</release>
-  <api>0.3.0</api>
+  <release>0.3.1</release>
+  <api>0.3.1</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -22,14 +22,13 @@
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD Style</license>
  <notes>
-- DateInterval added
-- Changed the way of creating containers, so we can use other cache directory and base class
+Small fixes on dependency injection container builder
  </notes>
  <contents>
   <dir baseinstalldir="Lcobucci/Common" name="/">
-   <file baseinstalldir="Lcobucci/Common" md5sum="dcd69c6cee462c0babfc43c3a9790160" name="ClassLoader/SplClassLoader.php" role="php" />
+   <file baseinstalldir="Lcobucci/Common" md5sum="b3aa3aab712469ec8713bd057b488bdd" name="ClassLoader/SplClassLoader.php" role="php" />
    <file baseinstalldir="Lcobucci/Common" md5sum="bd0b7966f7433ab33e0d3a1f3b56b601" name="Date/DateInterval.php" role="php" />
-   <file baseinstalldir="Lcobucci/Common" md5sum="859086143063736caba307a6fa089654" name="DependencyInjection/ContainerBuilder.php" role="php" />
+   <file baseinstalldir="Lcobucci/Common" md5sum="2b34c13bea3ca60538a7d0f6337dcaf8" name="DependencyInjection/ContainerBuilder.php" role="php" />
    <file baseinstalldir="Lcobucci/Common" md5sum="39c0fa96e1a55f975ac67c52113fc92c" name="DependencyInjection/XmlContainerBuilder.php" role="php" />
    <file baseinstalldir="Lcobucci/Common" md5sum="aaf5bebfef3afa8b5fd34c5d6a0ec20b" name="Paginate/PaginationInformation.php" role="php" />
   </dir>
@@ -90,6 +89,21 @@ Added the pagination calculator
    <notes>
 - DateInterval added
 - Changed the way of creating containers, so we can use other cache directory and base class
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.1</release>
+    <api>0.3.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-06-23</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD Style</license>
+   <notes>
+Small fixes on dependency injection container builder
    </notes>
   </release>
  </changelog>
