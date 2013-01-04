@@ -10,11 +10,11 @@
   <email>lcobucci@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2012-06-23</date>
- <time>17:30:08</time>
+ <date>2013-01-04</date>
+ <time>09:35:17</time>
  <version>
-  <release>0.3.1</release>
-  <api>0.3.1</api>
+  <release>0.4.0</release>
+  <api>0.4.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -26,7 +26,8 @@ Small fixes on dependency injection container builder
  </notes>
  <contents>
   <dir baseinstalldir="Lcobucci/Common" name="/">
-   <file baseinstalldir="Lcobucci/Common" md5sum="b3aa3aab712469ec8713bd057b488bdd" name="ClassLoader/SplClassLoader.php" role="php" />
+   <file baseinstalldir="Lcobucci/Common" md5sum="f021019de940001a8b38bf6133621869" name="ClassLoader/AnnotationReadyClassLoader.php" role="php" />
+   <file baseinstalldir="Lcobucci/Common" md5sum="c42aa1ad14e425e6fdb7af61f3bc7783" name="ClassLoader/SplClassLoader.php" role="php" />
    <file baseinstalldir="Lcobucci/Common" md5sum="bd0b7966f7433ab33e0d3a1f3b56b601" name="Date/DateInterval.php" role="php" />
    <file baseinstalldir="Lcobucci/Common" md5sum="2b34c13bea3ca60538a7d0f6337dcaf8" name="DependencyInjection/ContainerBuilder.php" role="php" />
    <file baseinstalldir="Lcobucci/Common" md5sum="39c0fa96e1a55f975ac67c52113fc92c" name="DependencyInjection/XmlContainerBuilder.php" role="php" />
@@ -101,6 +102,21 @@ Added the pagination calculator
     <api>alpha</api>
    </stability>
    <date>2012-06-23</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD Style</license>
+   <notes>
+Small fixes on dependency injection container builder
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.4.0</release>
+    <api>0.4.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2013-01-04</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD Style</license>
    <notes>
 Small fixes on dependency injection container builder
